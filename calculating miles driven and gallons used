@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*  PSUEDOCODE
+    program to input miles driven and gallons used for each tankful then calculate and print miles per gallon for each tankful.
+    After processing all input then calculate and print comibined mile per gallon
+
+    variables
+    declare & initialize variables
+
+    ask for and input miles driven and gallon used, calculate and print miles per gallon for each tankful
+    input gallonUsed
+    while the user has not used sentinel
+
+            if gallon used is not zero
+                input milesDriven
+                calculate tankful ie milesDriven / gallonsUsed
+                add tanful to milesPerGallonCounter
+                add one to tankfulcounter
+                print "miles / gallons for this tank was "
+
+            else
+                print "gallons used is zero so i cannot help you"
+
+            input gallonUsed (possibly sentinel)
+
+    if tankfulCounter is not equal to zero
+        calul8 averageCombinesMilesPerGallon
+        print "over all mile
+            calculate total milesPerGallon
+            calculate average combined mile per gallon
+            print "Over all average combined miles per gallon was "
+
+
+
+        (Gas Mileage) Drivers are concerned with the mileage obtained by their automobiles. One
+driver has kept track of several tankfuls of gasoline by recording miles driven and gallons used for
+each tankful. Develop a program that will input the miles driven and gallons used for each tankful.
+The program should calculate and display the miles per gallon obtained for each tankful. After processing
+all input information, the program should calculate and print the combined miles per gallon
+obtained for all tankfuls. Here is a sample input/output dialog:
+
+
+Enter the gallons used (-1 to end): 12.8
+Enter the miles driven: 287
+The miles / gallon for this tank was 22.421875
+Enter the gallons used (-1 to end): 10.3
+Enter the miles driven: 200
+The miles / gallon for this tank was 19.417475
+Enter the gallons used (-1 to end): 5
+Enter the miles driven: 120
+The miles / gallon for this tank was 24.000000
+Enter the gallons used (-1 to end): -1
+The overall average miles/gallon was 21.601423
+*/
+
+int main()
+{
+   int milesDriven,   tankfulCounter;
+   float tankful, averageCombinedMilesPerGallon, gallonsUsed;
+
+   double milesPerGallonCounter;
+   milesPerGallonCounter = 0;
+   tankfulCounter = 0;
+
+   printf("Enter gallons used (-1 to end): ");
+   scanf("%f", &gallonsUsed);
+
+   while (gallonsUsed != -1)
+   {
+        if (gallonsUsed != 0)
+       {
+           printf("Enter the miles driven: ");
+           scanf("%d", &milesDriven);
+
+           tankful = (float) milesDriven/gallonsUsed;
+
+           milesPerGallonCounter = milesPerGallonCounter + tankful;
+           tankfulCounter ++;
+
+           printf("The miles / gallon for this tank was %.6f\n\n",tankful);
+
+       }
+       else
+       {
+           printf("gallons used is zero so i cannot help you\n\n");
+       }
+
+         printf("Enter gallons used (-1 to end): ");
+         scanf("%f", &gallonsUsed);
+    }
+    if (tankfulCounter != 0)
+        {
+           averageCombinedMilesPerGallon =  (float) milesPerGallonCounter/tankfulCounter;
+           printf("Over all average combined miles per gallon was %.6f\n\n", averageCombinedMilesPerGallon);
+           /*Lines below help in testing and debugging counters*/
+           //printf("%d\t", tankfulCounter);
+           //printf("%.6f\n\n",milesPerGallonCounter);
+        }
+
+return 0;
+}
